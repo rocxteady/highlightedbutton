@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HighlightedButtonSample.iml" filepath="$PROJECT_DIR$/HighlightedButtonSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HighlightedButton.iml" filepath="$PROJECT_DIR$/HighlightedButton.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/highlightedbutton/highlightedbutton.iml" filepath="$PROJECT_DIR$/highlightedbutton/highlightedbutton.iml" />
     </modules>
