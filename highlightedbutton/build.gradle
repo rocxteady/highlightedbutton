@@ -6,14 +6,14 @@ ext {
 
     publishedGroupId = 'com.ulassancak'
     libraryName = 'Highlighted Button'
-    artifact = 'highlighted-button'
+    artifact = 'highlightedbutton'
 
     libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
 
     siteUrl = 'https://github.com/rocxteady/highlightedbutton'
     gitUrl = 'https://github.com/rocxteady/highlightedbutton.git'
 
-    libraryVersion = '0.1'
+    libraryVersion = '0.1.1'
 
     developerId = 'rocxteady'
     developerName = 'Ulaş Sancak'
@@ -31,8 +31,8 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 102
+        versionName "0.1.1"
     }
     buildTypes {
         release {
