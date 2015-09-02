@@ -68,7 +68,7 @@ public class HighlightedButton extends Button {
 
         //Highlighting for text
         int newColor = 0;
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
             originalTextColor = getCurrentTextColor();
             int red, green, blue;
             red = Color.red(originalTextColor);
@@ -78,10 +78,12 @@ public class HighlightedButton extends Button {
             green *= HIGHLIGHT_RATIO;
             blue *= HIGHLIGHT_RATIO;
             newColor = Color.rgb(red, green, blue);
-        } else {
+            setTextColor(newColor);
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
             newColor = originalTextColor;
+            setTextColor(newColor);
         }
-        setTextColor(newColor);
+
 
         return super.onTouchEvent(event);
     }
@@ -92,10 +94,10 @@ public class HighlightedButton extends Button {
                 Bitmap bitmap = drawableToBitmap(drawable);
                 drawable = new BitmapDrawable(this.contex.getResources(), bitmap);
             }
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
                 int color = Color.parseColor(HIGHLIGHT_FILTER_COLOR);
                 drawable.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-            } else {
+            } else if (event.getAction() == MotionEvent.ACTION_UP){
                 drawable.clearColorFilter();
             }
         }

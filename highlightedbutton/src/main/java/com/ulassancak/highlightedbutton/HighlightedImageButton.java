@@ -52,19 +52,26 @@ public class HighlightedImageButton extends ImageButton {
                 Bitmap bitmap = drawableToBitmap(drawable);
                 drawable = new BitmapDrawable(contex.getResources(), bitmap);
             }
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
                 int color = Color.parseColor(HIGHLIGHT_FILTER_COLOR);
                 drawable.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    setBackground(drawable);
+                }
+                else {
+                    setBackgroundDrawable(drawable);
+                }
             }
-            else {
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
                 drawable.clearColorFilter();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    setBackground(drawable);
+                }
+                else {
+                    setBackgroundDrawable(drawable);
+                }
             }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                setBackground(drawable);
-            }
-            else {
-                setBackgroundDrawable(drawable);
-            }
+
         }
         return super.onTouchEvent(event);
     }
